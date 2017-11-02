@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import PropTypes, { shape, func, string } from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
-import { connect } from 'react-redux';
-import { fetchGotData } from '../../actions';
-class App extends Component {
-
-
-  componentDidMount() {
-    this.props.fetchGotData();
-  }
+import CardContainer from '../CardContainer/CardContainer.js';
+// import { connect } from 'react-redux';
+// import { fetchGotData } from '../../actions';
+export default class App extends Component {
 
   render() {
     console.log(this.props);
@@ -24,23 +20,24 @@ class App extends Component {
           }}> FAKE ACTION</button>
         </div>
         <div className='Display-info'>
+          <CardContainer />
         </div>
       </div>
     );
   }
 }
 
-App.propTypes = {
-  fake: shape({ fake: string }),
-  fakeAction: func.isRequired
-};
+// App.propTypes = {
+//   fake: shape({ fake: string }),
+//   fakeAction: func.isRequired
+// };
 
-const mapStateToProps = store => ({
-  gotDataArray: store.gotData
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchGotData: () => dispatch(fetchGotData())
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// const mapStateToProps = store => ({
+//   gotDataArray: store.gotData
+// });
+//
+// const mapDispatchToProps = dispatch => ({
+//   fetchGotData: () => dispatch(fetchGotData())
+// });
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
