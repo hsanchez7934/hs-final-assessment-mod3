@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import membersArray from './mockData.js';
 
 describe(`Actions units testing`, () => {
   beforeEach(() => {
@@ -7,7 +8,9 @@ describe(`Actions units testing`, () => {
 
   test(`gotData action creator should return
         array and type`, () => {
-          const
+          const data = membersArray;
+
+          const expected = actions.gotData(data);
       });
 
 });

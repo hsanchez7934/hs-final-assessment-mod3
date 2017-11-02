@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
 
-const Card = ({ person }) => {
-  const { name, founded, seats, titles, coatOfArms, ancestralWeapons, words } = person;
+const Card = ({ person, fetchSwornMembers }) => {
+  const { name, founded, seats, titles, coatOfArms, ancestralWeapons, words, swornMembers } = person;
   return (
-    <article className='card'>
+    <article
+      className='card'
+      onClick={() => fetchSwornMembers(swornMembers)}>
       <ul>
         <li>{name}</li>
         <li>{founded}</li>

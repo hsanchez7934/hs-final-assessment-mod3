@@ -1,6 +1,4 @@
-const membersArray = Tree
-Chart
-JSON Input
+export const membersArray =
 [
 {
 "url": "https://www.anapioficeandfire.com/api/houses/81",
@@ -587,4 +585,4 @@ JSON Input
 "https://www.anapioficeandfire.com/api/characters/1008"
 ]
 }
-]
+];
