@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
-import { gotData } from './fake-reducer';
+import { gotData } from './gotdatareducer';
+import { swornMembers } from './swornmembersreducer';
+
 
 const rootReducer = combineReducers({
-  gotData
+  gotData,
+  swornMembers
 });
 
 

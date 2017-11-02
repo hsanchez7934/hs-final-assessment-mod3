@@ -1,0 +1,13 @@
+.card {
+  border-radius: 10px;
+  border-color: black;
+  border-style: solid;
+  margin: 10px;
+  padding: 5px;
+  flex-grow: 1;
+  width: 300px;
+}
+
+li {
+  list-style: none;
+}

@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Card.css';
 
 const Card = ({ person }) => {
   const { name, founded, seats, titles, coatOfArms, ancestralWeapons, words } = person;
   return (
-    <article>
+    <article className='card'>
       <ul>
         <li>{name}</li>
         <li>{founded}</li>
@@ -15,4 +17,11 @@ const Card = ({ person }) => {
       </ul>
     </article>
   );
-}
+};
+
+
+Card.propTypes = {
+  person: PropTypes.object
+};
+
+export default Card;

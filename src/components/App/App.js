@@ -3,12 +3,32 @@ import PropTypes, { shape, func, string } from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 import CardContainer from '../CardContainer/CardContainer.js';
-// import { connect } from 'react-redux';
-// import { fetchGotData } from '../../actions';
+
 export default class App extends Component {
 
+  componentDidMount() {
+    // fetch(` http://localhost:3001/api/v1/houses`, {
+    //   method: 'GET'
+    // })
+    //   .then(response => response.json())
+    //   .then(res => {
+    //     res.forEach( person => {
+    //       person.swornMembers.forEach( endpoint => {
+    //         fetch('http://www.localhost:3001/api/v1/character', {
+    //           method: 'POST',
+    //           headers: {
+    //             'Content-Type': 'application/json'
+    //           },
+    //           body: JSON.stringify({ url: endpoint })
+    //         })
+    //         .then(res => res.json())
+    //         .then(res => console.log(res));
+    //       });
+    //     });
+    //   });
+  }
+
   render() {
-    console.log(this.props);
     return (
       <div className='App'>
         <div className='App-header'>
@@ -26,18 +46,3 @@ export default class App extends Component {
     );
   }
 }
-
-// App.propTypes = {
-//   fake: shape({ fake: string }),
-//   fakeAction: func.isRequired
-// };
-
-// const mapStateToProps = store => ({
-//   gotDataArray: store.gotData
-// });
-//
-// const mapDispatchToProps = dispatch => ({
-//   fetchGotData: () => dispatch(fetchGotData())
-// });
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
