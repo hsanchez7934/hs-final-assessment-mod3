@@ -3,10 +3,16 @@ import PropTypes, { shape, func, string } from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import { fakeAction } from '../../actions';
+import { fetchGotData } from '../../actions';
 class App extends Component {
 
+
+  componentDidMount() {
+    this.props.fetchGotData();
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div className='App'>
         <div className='App-header'>
@@ -29,8 +35,12 @@ App.propTypes = {
   fakeAction: func.isRequired
 };
 
-const mapStateToProps = ({ fake }) => ({ fake });
-const mapDispatchToProps = dispatch => ({ fakeAction:
-  () => dispatch(fakeAction())
+const mapStateToProps = store => ({
+  gotDataArray: store.gotData
 });
+
+const mapDispatchToProps = dispatch => ({
+  fetchGotData: () => dispatch(fetchGotData())
+});
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
