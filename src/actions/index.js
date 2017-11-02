@@ -3,9 +3,9 @@ export const gotData = array => ({
   array
 });
 
-export const swornMembers = array => ({
+export const swornMembers = object => ({
   type: 'GET_SWORN_MEMBERS',
-  array
+  object
 });
 
 export const fetchGotData = () => dispatch => {
@@ -30,19 +30,22 @@ export const fetchGotData = () => dispatch => {
     });
 };
 
-export cont fetchSwornMembers = array => dispatch => {
-  array.map( endpoint => {
+export const fetchSwornMembers = array => dispatch => {
+    array.map( endpoint => {
     fetch(`http://localhost:3001/api/v1/character`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
         },
       body: JSON.stringify({ url: endpoint })
-      }
+      })
       .then(response => response.json())
       .then(response => {
-        Object.assign()
+        let object = Object.assign({
+          name: response.name,
+          alive: response.died || 'alive'
+        })
+        dispatch(swornMembers(object));
       })
-    })
-  })
+    });
 }

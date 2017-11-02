@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchGotData } from '../../actions';
+import { fetchGotData, fetchSwornMembers } from '../../actions';
 import Card from '../Card/Card.js';
 import './CardContainer.css';
 
@@ -15,14 +15,15 @@ class CardContainer extends Component {
     this.props.gotDataArray.map( (person, index) =>
       <Card
         person={person}
-        key={index} /> )
+        key={index}
+        fetchSwornMembers={this.props.fetchSwornMembers} /> )
   )
 
   render() {
     return (
       <section className='card-container'>
         {
-          this.renderCard()
+        this.renderCard()
         }
       </section>
     );
@@ -36,11 +37,13 @@ CardContainer.propTypes = {
 };
 
 const mapStateToProps = store => ({
-  gotDataArray: store.gotData
+  gotDataArray: store.gotData,
+  swornMembersArray: store.swornMembers
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchGotData: () => dispatch(fetchGotData())
+  fetchGotData: () => dispatch(fetchGotData()),
+  fetchSwornMembers: () => dispatch(fetchSwornMembers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
