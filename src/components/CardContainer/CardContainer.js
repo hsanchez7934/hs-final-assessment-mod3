@@ -22,7 +22,7 @@ class CardContainer extends Component {
     return (
       <section className='card-container'>
         {
-          this.renderCard();
+          this.renderCard()
         }
       </section>
     );
