@@ -13,20 +13,36 @@ export const fetchGotData = () => dispatch => {
     method: 'GET'
   })
     .then(response => response.json())
-    .then(res => {
-      res.forEach( person => {
-      const membersArr = person.swornMembers.forEach( endpoint =>{
-      fetch(`http://www.localhost:3001/api/v1/character`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ url: endpoint})
-      })
-        .then(response => response.json())
-        .then(res => dispatch(swornMembers(res)));
+    .then(array => {
+      const dataArray = array.map( house => {
+        return Object.assign({
+          name: house.name,
+          founded: house.founded,
+          seats: house.seats,
+          titles: house.titles,
+          coatOfArms: house.coatOfArms,
+          ancestralWeapons: house.ancestralWeapons,
+          words: house.words,
+          swornMembers: house.swornMembers
+        });
+      });
+      dispatch(gotData(dataArray));
     });
-    dispatch(gotData(res));
-    } );
+};
+
+export cont fetchSwornMembers = array => dispatch => {
+  array.map( endpoint => {
+    fetch(`http://localhost:3001/api/v1/character`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({ url: endpoint })
+      }
+      .then(response => response.json())
+      .then(response => {
+        Object.assign()
+      })
+    })
   })
 }

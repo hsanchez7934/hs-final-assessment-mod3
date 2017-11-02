@@ -6,28 +6,6 @@ import CardContainer from '../CardContainer/CardContainer.js';
 
 export default class App extends Component {
 
-  componentDidMount() {
-    // fetch(` http://localhost:3001/api/v1/houses`, {
-    //   method: 'GET'
-    // })
-    //   .then(response => response.json())
-    //   .then(res => {
-    //     res.forEach( person => {
-    //       person.swornMembers.forEach( endpoint => {
-    //         fetch('http://www.localhost:3001/api/v1/character', {
-    //           method: 'POST',
-    //           headers: {
-    //             'Content-Type': 'application/json'
-    //           },
-    //           body: JSON.stringify({ url: endpoint })
-    //         })
-    //         .then(res => res.json())
-    //         .then(res => console.log(res));
-    //       });
-    //     });
-    //   });
-  }
-
   render() {
     return (
       <div className='App'>
