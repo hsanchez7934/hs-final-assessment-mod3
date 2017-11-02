@@ -14,6 +14,7 @@ class CardContainer extends Component {
   renderCard = () => (
     this.props.gotDataArray.map( (person, index) =>
       <Card
+        swornMembersArray={this.props.swornMembersArray}
         person={person}
         key={index}
         fetchSwornMembers={this.props.fetchSwornMembers} /> )
@@ -33,7 +34,8 @@ class CardContainer extends Component {
 
 CardContainer.propTypes = {
   gotDataArray: PropTypes.array,
-  fetchGotData: PropTypes.func
+  fetchGotData: PropTypes.func,
+  fetchSwornMembers: PropTypes.func
 };
 
 const mapStateToProps = store => ({
@@ -43,7 +45,7 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchGotData: () => dispatch(fetchGotData()),
-  fetchSwornMembers: () => dispatch(fetchSwornMembers())
+  fetchSwornMembers: (array) => dispatch(fetchSwornMembers(array))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
