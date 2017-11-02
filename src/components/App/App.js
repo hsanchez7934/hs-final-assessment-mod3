@@ -7,13 +7,32 @@ import CardContainer from '../CardContainer/CardContainer.js';
 export default class App extends Component {
 
   componentDidMount() {
-    fetch(` http://localhost:3001/api/v1/houses`, {
-      method: 'GET'
+    fetch(`http://localhost:3001/api/v1/character`, {
+      method: 'POST',
+      body: JSON.stringify({ url: 'https://www.anapioficeandfire.com/api/characters/255'}),
+      mode: 'cors'
     })
-      .then(response => response.json())
-      .then(res => console.log(res))
+    .then(res => console.log(res));
   }
 
+  // fetch(` http://localhost:3001/api/v1/houses`, {
+  //   method: 'GET'
+  // })
+  //   .then(response => response.json())
+  //   .then(res => {
+  //     res.forEach( person => {
+  //       console.log(person.swornMembers);
+  //       person.swornMembers.forEach( url => {
+  //         fetch('http://localhost:3001/api/v1/character', {
+  //           method: 'POST',
+  //           body: {
+  //             url: '...url'
+  //           }
+  //         })
+  //         .then(res => console.log(res))
+  //       });
+  //     });
+  //   });
 
   render() {
     return (

@@ -3,6 +3,11 @@ export const gotData = array => ({
   array
 });
 
+export const swornMemers = array => ({
+  type: 'GET_SWORN_MEMBERS',
+  array
+});
+
 export const fetchGotData = () => dispatch => {
   fetch(` http://localhost:3001/api/v1/houses`, {
     method: 'GET'
