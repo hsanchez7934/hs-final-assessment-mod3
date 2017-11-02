@@ -12,5 +12,4 @@ describe(`Actions units testing`, () => {
 
           const expected = actions.gotData(data);
       });
-
 });
